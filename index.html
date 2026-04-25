@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supper Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-icon">🍽</span>
+          <span class="logo-text">Supper Planner</span>
+        </div>
+        <nav class="nav">
+          <button class="nav-btn active" data-tab="week">Weekly Plan</button>
+          <button class="nav-btn" data-tab="grocery">Grocery List</button>
+          <button class="nav-btn" data-tab="meals">My Meals</button>
+          <button class="nav-btn" data-tab="discover">Discover</button>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav">
+        <button class="nav-btn active" data-tab="week">Weekly Plan</button>
+        <button class="nav-btn" data-tab="grocery">Grocery List</button>
+        <button class="nav-btn" data-tab="meals">My Meals</button>
+        <button class="nav-btn" data-tab="discover">Discover</button>
+      </nav>
+    </header>
+
+    <main class="main">
+
+      <!-- WEEKLY PLAN -->
+      <section id="tab-week" class="tab-section active">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">This Week's Suppers</h1>
+            <p class="section-sub">No repeated meals. No repeated proteins back to back.</p>
+          </div>
+          <button class="btn-primary" id="generate-btn">Regenerate Week</button>
+        </div>
+        <div class="day-grid" id="week-grid"></div>
+      </section>
+
+      <!-- GROCERY LIST -->
+      <section id="tab-grocery" class="tab-section">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">Grocery List</h1>
+            <p class="section-sub">Organized by Walmart aisle order.</p>
+          </div>
+          <div class="btn-group">
+            <button class="btn-secondary" id="copy-btn">Copy List</button>
+            <button class="btn-secondary" id="uncheck-btn">Uncheck All</button>
+          </div>
+        </div>
+        <div class="progress-wrap" id="progress-wrap">
+          <div class="progress-label" id="progress-label">0 of 0 items</div>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        </div>
+        <div id="grocery-content"></div>
+      </section>
+
+      <!-- MY MEALS -->
+      <section id="tab-meals" class="tab-section">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">My Meals</h1>
+            <p class="section-sub">Your full rotation. Click a meal to see and edit its ingredients.</p>
+          </div>
+        </div>
+        <div class="add-meal-form">
+          <input type="text" id="new-meal-name" placeholder="Meal name — e.g. Chicken stir fry" class="text-input" />
+          <select id="new-meal-protein" class="select-input">
+            <option value="chicken">Chicken</option>
+            <option value="beef">Beef</option>
+            <option value="pork">Pork</option>
+            <option value="fish">Fish / Seafood</option>
+            <option value="pasta">Pasta</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="other">Other</option>
+          </select>
+          <button class="btn-primary" id="add-meal-btn">Add Meal</button>
+        </div>
+        <div class="meal-list" id="meal-list"></div>
+      </section>
+
+      <!-- DISCOVER -->
+      <section id="tab-discover" class="tab-section">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">Discover New Meals</h1>
+            <p class="section-sub">Claude suggests meals based on what you already like.</p>
+          </div>
+        </div>
+        <div class="discover-card">
+          <p class="discover-intro">Your current meal list will be analyzed and Claude will suggest 5 new suppers you might enjoy — with a reason for each one.</p>
+          <button class="btn-primary" id="suggest-btn">Suggest New Meals ↗</button>
+          <div id="ai-result"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
